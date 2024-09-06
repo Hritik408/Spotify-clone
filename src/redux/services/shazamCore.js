@@ -1,17 +1,17 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     'x-rapidapi-key': '541eaaa774msh3f4f2e158faf03cp1e9f9fjsn4478c14cfaae',
-//     'x-rapidapi-host': 'shazam.p.rapidapi.com'
-//   }
-// };
+const options = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': '541eaaa774msh3f4f2e158faf03cp1e9f9fjsn4478c14cfaae',
+    'x-rapidapi-host': 'shazam.p.rapidapi.com'
+  }
+};
 
-// fetch('https://shazam.p.rapidapi.com/charts/list', options)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
+fetch('https://shazam.p.rapidapi.com/songs/get-details?key=40333609&locale=en-US', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 
 
     export const shazamCoreApi = createApi({
@@ -25,7 +25,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
         }
       }),
       endpoints: (builder) => ({
-        getTopCharts: builder.query({ query: ( ) => '/charts/list'})
+        getTopCharts: builder.query({ query: ( ) => '/songs/get-details?key=40333609&locale=en-US'})
       })
      });
 

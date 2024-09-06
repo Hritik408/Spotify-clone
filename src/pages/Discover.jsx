@@ -1,5 +1,5 @@
 import { Error, Loader, SongCard } from "../components";
-import { genres } from "../assets/constants";
+import { genress } from "../assets/constants";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
 const Discover = () => {
@@ -9,7 +9,7 @@ const Discover = () => {
 
   console.log(data);
 
-  const {genres} = data?.global;
+  // const {genres} = data?.global;
 
   if (isFetching) return <Loader title="Loading songs..." />
 
@@ -34,7 +34,7 @@ const Discover = () => {
           className="bg-black text-gray-300 p-3 text-sm
         rounded-lg outline-none sm:mt-0 mt-5"
         >
-          {genres.map((genre) => (
+          {genress.map((genre) => (
             <option key={genre.value} value={genre.value}>
               {genre.title}
             </option>
@@ -43,10 +43,10 @@ const Discover = () => {
       </div>
 
     <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {genres.map((name, i) => (
+        {[1,2,3,4,5].map((song, i) => (
         <SongCard 
-         key={name.i}
-         name = {name} 
+         key={song.key}
+         song = {song} 
          i = {i}
         />
         ))}
